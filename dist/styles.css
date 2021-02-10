@@ -43,17 +43,19 @@ header p {
     justify-content: center;
 }
 
+
 #projects {
     background-color: #d3e0ea;
     width: 250px;
     height: 100%;
-    min-height: 84vh;
+    height: 84vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-bottom: 2vh;
     border-right: solid 2px black;
     border-left: solid 2px black;
+    overflow-y: auto;
 }
 
 #projects-title-div {
@@ -80,24 +82,21 @@ header p {
     font-size: 18px;
 }
 
-#new-project-input {
+#new-project-form {
     width: 350px;
     height: 140px;
-    background-color: #f7f6e7;
     position: absolute;
     left: 250px;
+    padding-top: 5px;
+    background-color: #f7f6e7;
     border: solid 2px black;
     border-top: none;
-    visibility: hidden;
-}
-
-#new-project-form {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 1;
+    visibility: hidden;
 }
 
 label {
@@ -148,11 +147,15 @@ input {
 .project-name {
     height: 100%;
     width: 80%;
+    border: none;
+    font-size: 16px;
     border-bottom: solid 2px black;
     overflow: hidden;
+    background-color: transparent;
+    color: black;
 }
 
-.delete-button {
+.delete-button-task, .delete-button-project {
     display: flex;
     justify-content: center;
     background-color: #ec4646;
@@ -161,7 +164,7 @@ input {
     color: #e7e6e1;
 }
 
-.delete-button:hover {
+.delete-button-task:hover, .delete-button-project:hover {
     background-color: #a20a0a;
     border-color: #a20a0a
 }
@@ -170,11 +173,13 @@ input {
     background-color: #e7e6e1;
     width: calc(100% - 270px);
     min-width: 610px;
-    min-height: 84vh;
+    height: 84vh;
     padding: 0 10px 2vh 10px;
     border-right: solid 2px black;
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    visibility: hidden;
 }
 
 #project-data-div {
@@ -309,21 +314,17 @@ input {
     font-size: 26px;
 }
 
-#new-task-input {
+#new-task-form {
     position: relative;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
     width: 400px;
+    height: max-content;
     padding-top: 15px;
     background-color: #cae4db;
     border: solid 4px #045762;
     visibility: hidden;
-}
-
-#new-task-form {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
